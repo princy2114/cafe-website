@@ -27,7 +27,6 @@ body {
   line-height: 1.6;
 }
 
-/* ── NAV ── */
 nav {
   background: var(--warm-white);
   border-bottom: 2px solid var(--terracotta);
@@ -67,7 +66,6 @@ nav {
 }
 .nav-links a:hover { color: var(--terracotta); }
 
-/* ── HERO ── */
 .hero {
   background: var(--paper);
   padding: 5rem 2rem 4rem;
@@ -76,7 +74,7 @@ nav {
   position: relative;
   overflow: hidden;
 }
-/* subtle hand-drawn underline squiggle feel */
+
 .hero::after {
   content: '';
   display: block;
@@ -128,7 +126,6 @@ nav {
 }
 .hero-cta:hover { background: var(--terracotta-light); transform: translateY(-1px); }
 
-/* ── SECTION ── */
 section { padding: 4rem 2rem; }
 .container { max-width: 900px; margin: 0 auto; }
 .section-heading {
@@ -145,7 +142,6 @@ section { padding: 4rem 2rem; }
   margin-bottom: 2.5rem;
 }
 
-/* ── ABOUT ── */
 .about { background: var(--warm-white); }
 .about-inner {
   display: grid;
@@ -190,7 +186,6 @@ section { padding: 4rem 2rem; }
   font-weight: 600;
 }
 
-/* ── MENU ── */
 .menu-section { background: var(--bg); }
 .menu-tabs {
   display: flex;
@@ -265,7 +260,6 @@ section { padding: 4rem 2rem; }
   font-size: .9rem;
 }
 
-/* ── BOOK ── */
 .book-section { background: var(--paper); border-top: 1px solid var(--border); }
 .book-grid {
   display: grid;
@@ -285,7 +279,6 @@ section { padding: 4rem 2rem; }
 .info-text { color: var(--muted); line-height: 1.5; }
 .info-text strong { color: var(--text); display: block; font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; font-weight: 600; margin-bottom: 2px; }
 
-/* form */
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 .field { margin-bottom: 1.1rem; }
 .field label {
@@ -332,7 +325,6 @@ section { padding: 4rem 2rem; }
 }
 .btn-book:hover { background: var(--terracotta-light); transform: translateY(-1px); }
 
-/* success state */
 .book-success {
   display: none;
   background: #f0f7f2;
@@ -345,7 +337,6 @@ section { padding: 4rem 2rem; }
 .book-success h3 { font-family: 'Lora', serif; font-size: 1.4rem; margin-bottom: .5rem; color: var(--green); }
 .book-success p { color: var(--muted); font-size: .88rem; }
 
-/* ── FOOTER ── */
 footer {
   background: var(--text);
   color: rgba(255,249,243,.75);
@@ -363,7 +354,6 @@ footer .footer-logo {
 footer p { margin-bottom: .3rem; }
 footer a { color: rgba(255,249,243,.5); text-decoration: none; }
 
-/* ── TOAST ── */
 #toast {
   position: fixed; bottom: 2rem; right: 2rem; z-index: 999;
   background: var(--text);
@@ -378,7 +368,6 @@ footer a { color: rgba(255,249,243,.5); text-decoration: none; }
 }
 #toast.show { transform: translateY(0); opacity: 1; }
 
-/* ── API STATUS ── */
 .api-bar {
   background: #f5f0e8;
   border-bottom: 1px solid var(--border);
@@ -404,7 +393,6 @@ footer a { color: rgba(255,249,243,.5); text-decoration: none; }
 
 <div id="toast"></div>
 
-<!-- NAV -->
 <nav>
   <div class="logo">Doon's Kitchen <span>Home cooked · Ahemdabad</span></div>
   <ul class="nav-links">
@@ -414,13 +402,11 @@ footer a { color: rgba(255,249,243,.5); text-decoration: none; }
   </ul>
 </nav>
 
-<!-- API STATUS -->
 <div class="api-bar">
   <div class="api-dot" id="api-dot"></div>
   <span id="api-text">Checking Flask backend…</span>
 </div>
 
-<!-- HERO -->
 <div class="hero">
   <div class="hero-tag">Open for lunch & dinner · Law garden, Ahemdabad</div>
   <h1>Food that tastes like<br><em>someone made it for you.</em></h1>
@@ -428,7 +414,6 @@ footer a { color: rgba(255,249,243,.5); text-decoration: none; }
   <button class="hero-cta" onclick="document.getElementById('book').scrollIntoView({behavior:'smooth'})">Reserve a spot →</button>
 </div>
 
-<!-- ABOUT -->
 <section class="about" id="about">
   <div class="container">
     <div class="about-inner">
@@ -454,7 +439,6 @@ footer a { color: rgba(255,249,243,.5); text-decoration: none; }
   </div>
 </section>
 
-<!-- MENU -->
 <section class="menu-section" id="menu">
   <div class="container">
     <div class="section-heading">What we're <em>cooking</em></div>
@@ -470,7 +454,6 @@ footer a { color: rgba(255,249,243,.5); text-decoration: none; }
   </div>
 </section>
 
-<!-- BOOK -->
 <section class="book-section" id="book">
   <div class="container">
     <div class="book-grid">
@@ -547,7 +530,6 @@ footer a { color: rgba(255,249,243,.5); text-decoration: none; }
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-logo">Doon's Kitchen</div>
   <p>Law garden Street market , Law garden, Ahemdabad · +91 XXXXX 11223</p>
@@ -557,7 +539,6 @@ footer a { color: rgba(255,249,243,.5); text-decoration: none; }
 <script>
 const API = 'http://localhost:5000/api';
 
-/* ── MENU DATA ── */
 const fallbackMenu = {
   starters: [
     { name:"Dal Shorba", desc:"Slow-cooked lentil soup with a tadka of mustard seeds, curry leaves, ghee. Comes with warm bread.", price:180, veg:true, spicy:false, fav:true },
@@ -616,7 +597,6 @@ function showTab(btn, cat) {
   loadMenu(cat);
 }
 
-/* ── BOOKING ── */
 async function bookTable() {
   const name   = document.getElementById('r-name').value.trim();
   const email  = document.getElementById('r-email').value.trim();
@@ -652,7 +632,7 @@ async function bookTable() {
   showToast('Booking confirmed 🙌');
 }
 
-/* ── HELPERS ── */
+
 function setApi(online) {
   document.getElementById('api-dot').className = 'api-dot ' + (online ? 'online' : 'offline');
   document.getElementById('api-text').textContent = online
@@ -668,11 +648,9 @@ function showToast(msg) {
   t._t = setTimeout(() => t.classList.remove('show'), 3000);
 }
 
-/* min date = tomorrow */
 const d = new Date(); d.setDate(d.getDate() + 1);
 document.getElementById('r-date').min = d.toISOString().split('T')[0];
 
-/* init */
 loadMenu('starters');
 </script>
 </body>
