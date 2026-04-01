@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Doon's Kitchen — Home Cooked, Heart First</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Nunito:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #fdf8f2;
+  --paper: #fff9f3;
+  --terracotta: #c4622d;
+  --terracotta-light: #e8795a;
+  --green: #4a7c59;
+  --text: #2d2418;
+  --muted: #7a6652;
+  --border: #e8ddd0;
+  --warm-white: #fffdf9;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* ── NAV ── */
+nav {
+  background: var(--warm-white);
+  border-bottom: 2px solid var(--terracotta);
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.logo {
+  font-family: 'Lora', serif;
+  font-size: 1.5rem;
+  color: var(--terracotta);
+  font-style: italic;
+}
+.logo span {
+  display: block;
+  font-family: 'Nunito', sans-serif;
+  font-size: .65rem;
+  font-style: normal;
+  color: var(--muted);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  margin-top: -2px;
+}
+.nav-links {
+  display: flex;
+  gap: 1.8rem;
+  list-style: none;
+}
+.nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: .9rem;
+  transition: color .2s;
+}
+.nav-links a:hover { color: var(--terracotta); }
+
+/* ── HERO ── */
+.hero {
+  background: var(--paper);
+  padding: 5rem 2rem 4rem;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+/* subtle hand-drawn underline squiggle feel */
+.hero::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: var(--terracotta);
+  margin: 2rem auto 0;
+  border-radius: 2px;
+}
+.hero-tag {
+  font-size: .75rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+.hero h1 {
+  font-family: 'Lora', serif;
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--text);
+  margin-bottom: 1.25rem;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--terracotta);
+}
+.hero p {
+  color: var(--muted);
+  font-size: 1rem;
+  max-width: 520px;
+  margin: 0 auto 2rem;
+}
+.hero-cta {
+  display: inline-block;
+  background: var(--terracotta);
+  color: #fff;
+  padding: 12px 30px;
+  text-decoration: none;
+  font-size: .9rem;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: background .2s, transform .15s;
+  border: none;
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+}
+.hero-cta:hover { background: var(--terracotta-light); transform: translateY(-1px); }
+
+/* ── SECTION ── */
+section { padding: 4rem 2rem; }
+.container { max-width: 900px; margin: 0 auto; }
+.section-heading {
+  font-family: 'Lora', serif;
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-bottom: .4rem;
+  color: var(--text);
+}
+.section-heading em { font-style: italic; color: var(--terracotta); }
+.section-sub {
+  color: var(--muted);
+  font-size: .9rem;
+  margin-bottom: 2.5rem;
+}
+
+/* ── ABOUT ── */
+.about { background: var(--warm-white); }
+.about-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+.about-text p {
+  color: var(--muted);
+  font-size: .95rem;
+  margin-bottom: 1rem;
+  line-height: 1.8;
+}
+.about-text p strong { color: var(--text); }
+.about-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+}
+.about-card .big { font-size: 3.5rem; margin-bottom: 1rem; }
+.about-card h3 {
+  font-family: 'Lora', serif;
+  font-size: 1.2rem;
+  margin-bottom: .5rem;
+  color: var(--text);
+}
+.about-card p { font-size: .85rem; color: var(--muted); }
+.about-facts {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+.fact {
+  font-size: .8rem;
+  color: var(--green);
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  font-weight: 600;
+}
+
+/* ── MENU ── */
+.menu-section { background: var(--bg); }
+.menu-tabs {
+  display: flex;
+  gap: .5rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+.tab-btn {
+  padding: 8px 20px;
+  border: 1.5px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  border-radius: 999px;
+  font-family: 'Nunito', sans-serif;
+  font-size: .82rem;
+  cursor: pointer;
+  transition: all .2s;
+  font-weight: 500;
+}
+.tab-btn:hover { border-color: var(--terracotta); color: var(--terracotta); }
+.tab-btn.active {
+  background: var(--terracotta);
+  border-color: var(--terracotta);
+  color: #fff;
+}
+.menu-list { display: flex; flex-direction: column; gap: 1rem; }
+.menu-card {
+  background: var(--warm-white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  transition: border-color .2s, box-shadow .2s;
+}
+.menu-card:hover {
+  border-color: var(--terracotta);
+  box-shadow: 0 2px 12px rgba(196,98,45,.08);
+}
+.menu-card-left { flex: 1; }
+.menu-card-name {
+  font-family: 'Lora', serif;
+  font-size: 1.05rem;
+  margin-bottom: .3rem;
+  color: var(--text);
+}
+.menu-card-desc { font-size: .82rem; color: var(--muted); line-height: 1.6; }
+.menu-card-badges { display: flex; gap: .4rem; margin-top: .5rem; }
+.badge {
+  font-size: .65rem;
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-weight: 600;
+  letter-spacing: .04em;
+}
+.badge.veg   { background: #e8f5ec; color: var(--green); }
+.badge.spicy { background: #fdf0eb; color: var(--terracotta); }
+.badge.fav   { background: #fef8ec; color: #b07d1a; }
+.menu-card-price {
+  font-family: 'Lora', serif;
+  font-size: 1.2rem;
+  color: var(--terracotta);
+  white-space: nowrap;
+  padding-top: .1rem;
+}
+.menu-empty {
+  text-align: center;
+  padding: 3rem;
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+/* ── BOOK ── */
+.book-section { background: var(--paper); border-top: 1px solid var(--border); }
+.book-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 4rem;
+  align-items: start;
+}
+.book-info p { color: var(--muted); font-size: .9rem; line-height: 1.8; margin-bottom: 1.5rem; }
+.info-row {
+  display: flex;
+  gap: .75rem;
+  margin-bottom: 1rem;
+  align-items: flex-start;
+  font-size: .88rem;
+}
+.info-icon { font-size: 1rem; flex-shrink: 0; margin-top: .1rem; }
+.info-text { color: var(--muted); line-height: 1.5; }
+.info-text strong { color: var(--text); display: block; font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; font-weight: 600; margin-bottom: 2px; }
+
+/* form */
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.field { margin-bottom: 1.1rem; }
+.field label {
+  display: block;
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: .4rem;
+}
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1.5px solid var(--border);
+  background: var(--warm-white);
+  border-radius: 6px;
+  font-family: 'Nunito', sans-serif;
+  font-size: .9rem;
+  color: var(--text);
+  outline: none;
+  transition: border-color .2s;
+}
+.field input:focus,
+.field select:focus,
+.field textarea:focus { border-color: var(--terracotta); }
+.field textarea { resize: vertical; min-height: 80px; }
+.field select option { background: #fff; }
+.btn-book {
+  width: 100%;
+  padding: 13px;
+  background: var(--terracotta);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-family: 'Nunito', sans-serif;
+  font-size: .95rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: .5rem;
+  transition: background .2s, transform .15s;
+}
+.btn-book:hover { background: var(--terracotta-light); transform: translateY(-1px); }
+
+/* success state */
+.book-success {
+  display: none;
+  background: #f0f7f2;
+  border: 1.5px solid #b5d9c2;
+  border-radius: 8px;
+  padding: 2.5rem;
+  text-align: center;
+}
+.book-success .success-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+.book-success h3 { font-family: 'Lora', serif; font-size: 1.4rem; margin-bottom: .5rem; color: var(--green); }
+.book-success p { color: var(--muted); font-size: .88rem; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--text);
+  color: rgba(255,249,243,.75);
+  padding: 2.5rem 2rem;
+  text-align: center;
+  font-size: .82rem;
+}
+footer .footer-logo {
+  font-family: 'Lora', serif;
+  font-size: 1.3rem;
+  color: var(--terracotta-light);
+  font-style: italic;
+  margin-bottom: .5rem;
+}
+footer p { margin-bottom: .3rem; }
+footer a { color: rgba(255,249,243,.5); text-decoration: none; }
+
+/* ── TOAST ── */
+#toast {
+  position: fixed; bottom: 2rem; right: 2rem; z-index: 999;
+  background: var(--text);
+  color: var(--warm-white);
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-size: .85rem;
+  transform: translateY(60px);
+  opacity: 0;
+  transition: all .3s;
+  max-width: 260px;
+}
+#toast.show { transform: translateY(0); opacity: 1; }
+
+/* ── API STATUS ── */
+.api-bar {
+  background: #f5f0e8;
+  border-bottom: 1px solid var(--border);
+  padding: .5rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: .72rem;
+  color: var(--muted);
+}
+.api-dot { width: 7px; height: 7px; border-radius: 50%; background: #ccc; flex-shrink: 0; }
+.api-dot.online  { background: var(--green); }
+.api-dot.offline { background: #e0a870; }
+
+@media (max-width: 720px) {
+  .about-inner, .book-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .form-row { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+}
+</style>
+</head>
+<body>
+
+<div id="toast"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Doon's Kitchen <span>Home cooked · Ahemdabad</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#book">Book a Table</a></li>
+  </ul>
+</nav>
+
+<!-- API STATUS -->
+<div class="api-bar">
+  <div class="api-dot" id="api-dot"></div>
+  <span id="api-text">Checking Flask backend…</span>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">Open for lunch & dinner · Law garden, Ahemdabad</div>
+  <h1>Food that tastes like<br><em>someone made it for you.</em></h1>
+  <p>We cook simple, honest food using ingredients from the market down the road. No tricks, no foam. Just good meals shared with good people.</p>
+  <button class="hero-cta" onclick="document.getElementById('book').scrollIntoView({behavior:'smooth'})">Reserve a spot →</button>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-inner">
+      <div class="about-text">
+        <div class="section-heading">Hey,  <em>Always at your service...</em></div>
+        <p class="section-sub">We serve with love...You must eat with love</p>
+        <p><strong>We cook what's fresh that week.</strong> The menu changes with the season, the market, and honestly — whatever I feel like making. Some dishes have been here since day one. Others show up and disappear.</p>
+        <p>We have 24 seats. We take bookings. We'd love to feed you.</p>
+        <div class="about-facts">
+          <span class="fact">✓ vegetarian/Non Vegetarian-friendly</span>
+          <span class="fact">✓ Local ingredients</span>
+          <span class="fact">✓ No MSG, no shortcuts</span>
+        </div>
+      </div>
+      <div class="about-card">
+        <div class="big">👩‍🍳</div>
+        <h3>Doon's Kitchen</h3>
+        <p>Est. 2019 · 24 seats · law garden<br/>Open Tue–Sun, 12pm – 10pm</p>
+        <br/>
+        <p style="font-size:.82rem;color:var(--muted);font-style:italic;">"If you leave without asking for seconds, I haven't done my job."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="menu-section" id="menu">
+  <div class="container">
+    <div class="section-heading">What we're <em>cooking</em></div>
+    <p class="section-sub">Tap a section to browse. Prices in ₹. Menu changes weekly.</p>
+    <div class="menu-tabs">
+      <button class="tab-btn active" onclick="showTab(this,'starters')">🥗 Starters</button>
+      <button class="tab-btn" onclick="showTab(this,'mains')">🍛 Mains</button>
+      <button class="tab-btn" onclick="showTab(this,'desserts')">🍮 Desserts</button>
+    </div>
+    <div class="menu-list" id="menu-list">
+      <div class="menu-empty">Loading today's menu…</div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOK -->
+<section class="book-section" id="book">
+  <div class="container">
+    <div class="book-grid">
+      <div class="book-info">
+        <div class="section-heading">Come <em>visit us.</em></div>
+        <p class="section-sub">We hold tables for 10 minutes. For large groups (8+) please call ahead.</p>
+        <p>You don't need a fancy occasion. Tuesday lunch works just as well as Saturday dinner. Come hungry.</p>
+        <div class="info-row">
+          <div class="info-icon">📍</div>
+          <div class="info-text"><strong>Where</strong>Law garden Street market , Law garden, Ahemdabad 380001</div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon">🕐</div>
+          <div class="info-text"><strong>Hours</strong>Tue–Sun: 12pm–3pm and 6pm–10pm<br/>Closed Mondays</div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon">📞</div>
+          <div class="info-text"><strong>Call us</strong>+91 XXXXX 11223</div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon">📸</div>
+          <div class="info-text"><strong>Instagram</strong>@Doon.Ahemdabad</div>
+        </div>
+      </div>
+      <div>
+        <div id="book-form">
+          <div class="form-row">
+            <div class="field"><label>Your name</label><input type="text" id="r-name" placeholder="Priya Sharma"/></div>
+            <div class="field"><label>Email</label><input type="email" id="r-email" placeholder="priya@email.com"/></div>
+          </div>
+          <div class="form-row">
+            <div class="field"><label>Date</label><input type="date" id="r-date"/></div>
+            <div class="field"><label>Time</label>
+              <select id="r-time">
+                <option value="">Pick a time</option>
+                <option>12:00 pm</option>
+                <option>12:30 pm</option>
+                <option>1:00 pm</option>
+                <option>1:30 pm</option>
+                <option>6:00 pm</option>
+                <option>6:30 pm</option>
+                <option>7:00 pm</option>
+                <option>7:30 pm</option>
+                <option>8:00 pm</option>
+              </select>
+            </div>
+          </div>
+          <div class="field"><label>How many people?</label>
+            <select id="r-guests">
+              <option value="1">Just me</option>
+              <option value="2" selected>2 people</option>
+              <option value="3">3 people</option>
+              <option value="4">4 people</option>
+              <option value="5">5 people</option>
+              <option value="6">6 people</option>
+              <option value="7">7 people</option>
+              <option value="8">8 people</option>
+            </select>
+          </div>
+          <div class="field"><label>Anything we should know?</label>
+            <textarea id="r-note" placeholder="Allergies, dietary needs, celebrating something special…"></textarea>
+          </div>
+          <button class="btn-book" onclick="bookTable()">Book my table</button>
+        </div>
+        <div class="book-success" id="book-success">
+          <div class="success-icon">🌿</div>
+          <h3>You're booked!</h3>
+          <p id="success-msg">See you soon. We'll keep a table warm for you.</p>
+          <br/>
+          <p style="font-size:.78rem;">We'll send a confirmation to your email. If plans change, just give us a call.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Doon's Kitchen</div>
+  <p>Law garden Street market , Law garden, Ahemdabad · +91 XXXXX 11223</p>
+  <p style="margin-top:.5rem;font-size:.75rem;opacity:.5;">Built with Python Flask + plain HTML/CSS/JS · © 2026</p>
+</footer>
+
+<script>
+const API = 'http://localhost:5000/api';
+
+/* ── MENU DATA ── */
+const fallbackMenu = {
+  starters: [
+    { name:"Dal Shorba", desc:"Slow-cooked lentil soup with a tadka of mustard seeds, curry leaves, ghee. Comes with warm bread.", price:180, veg:true, spicy:false, fav:true },
+    { name:"Aloo Tikki Chaat", desc:"Crispy potato patties, tamarind chutney, whipped yoghurt, sev. Mira's first recipe.", price:150, veg:true, spicy:true, fav:true },
+    { name:"Chicken Liver Pâté", desc:"Made on Tuesdays. Coarse-style, with pickled onions and toast. Limited portions.", price:220, veg:false, spicy:false, fav:false },
+    { name:"Roasted Cauliflower", desc:"Whole-roasted with harissa butter, pomegranate, toasted pine nuts, fresh mint.", price:190, veg:true, spicy:false, fav:false },
+  ],
+  mains: [
+    { name:"Doon's Lamb Curry", desc:"Been on the menu since day one. Slow-cooked 4 hours, served with hand-rolled roti.", price:420, veg:false, spicy:true, fav:true },
+    { name:"Coconut Fish Curry", desc:"Fresh catch of the day from the Bandra market. Coconut milk, raw mango, red chilli.", price:380, veg:false, spicy:true, fav:false },
+    { name:"Paneer Makhani", desc:"Home-style, not restaurant-style. Richer, simpler, the way it should be.", price:320, veg:true, spicy:false, fav:true },
+    { name:"Pasta e Fagioli", desc:"A nod to Mira's trip to Rome in 2019. Borlotti beans, rosemary, good olive oil.", price:290, veg:true, spicy:false, fav:false },
+    { name:"Sunday Roast Chicken", desc:"Available Sundays only. Half chicken, roasted garlic, thyme, seasonal vegetables.", price:480, veg:false, spicy:false, fav:false },
+  ],
+  desserts: [
+    { name:"Mum's Gulab Jamun", desc:"Served warm with vanilla ice cream. Her exact recipe. Not ours to change.", price:120, veg:true, spicy:false, fav:true },
+    { name:"Dark Chocolate Pot", desc:"Set cream with 70% chocolate, a pinch of sea salt, orange zest.", price:160, veg:true, spicy:false, fav:false },
+    { name:"Seasonal Fruit Crumble", desc:"Changes with what's good that week. Ask your server what's in it today.", price:140, veg:true, spicy:false, fav:false },
+  ]
+};
+
+let currentTab = 'starters';
+
+async function loadMenu(cat) {
+  const list = document.getElementById('menu-list');
+  list.innerHTML = '<div class="menu-empty">One moment…</div>';
+  let items;
+  try {
+    const res = await fetch(`${API}/menu?category=${cat}`);
+    items = await res.json();
+    setApi(true);
+  } catch {
+    items = fallbackMenu[cat] || [];
+    setApi(false);
+  }
+  if (!items.length) { list.innerHTML = '<div class="menu-empty">Nothing here today — check back soon!</div>'; return; }
+  list.innerHTML = items.map(item => `
+    <div class="menu-card">
+      <div class="menu-card-left">
+        <div class="menu-card-name">${item.name}</div>
+        <div class="menu-card-desc">${item.desc}</div>
+        <div class="menu-card-badges">
+          ${item.veg   ? '<span class="badge veg">vegetarian</span>' : ''}
+          ${item.spicy ? '<span class="badge spicy">spicy</span>' : ''}
+          ${item.fav   ? '<span class="badge fav">⭐ favourite</span>' : ''}
+        </div>
+      </div>
+      <div class="menu-card-price">₹${item.price}</div>
+    </div>`).join('');
+}
+
+function showTab(btn, cat) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  currentTab = cat;
+  loadMenu(cat);
+}
+
+/* ── BOOKING ── */
+async function bookTable() {
+  const name   = document.getElementById('r-name').value.trim();
+  const email  = document.getElementById('r-email').value.trim();
+  const date   = document.getElementById('r-date').value;
+  const time   = document.getElementById('r-time').value;
+  const guests = document.getElementById('r-guests').value;
+  const note   = document.getElementById('r-note').value;
+
+  if (!name || !email || !date || !time) {
+    showToast('Please fill in your name, email, date and time.');
+    return;
+  }
+
+  const body = { name, email, date, time, guests: parseInt(guests), note };
+  let confirmMsg = `Got it, ${name.split(' ')[0]}! We'll see you ${date} at ${time} for ${guests} ${guests == 1 ? 'person' : 'people'}.`;
+
+  try {
+    const res = await fetch(`${API}/reservations`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body)
+    });
+    const data = await res.json();
+    if (data.message) confirmMsg = data.message;
+  } catch {
+    /* offline — still show success */
+  }
+
+  document.getElementById('book-form').style.display = 'none';
+  const success = document.getElementById('book-success');
+  success.style.display = 'block';
+  document.getElementById('success-msg').textContent = confirmMsg;
+  showToast('Booking confirmed 🙌');
+}
+
+/* ── HELPERS ── */
+function setApi(online) {
+  document.getElementById('api-dot').className = 'api-dot ' + (online ? 'online' : 'offline');
+  document.getElementById('api-text').textContent = online
+    ? 'Flask backend running · localhost:5000'
+    : 'Flask not running — showing demo data';
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(t._t);
+  t._t = setTimeout(() => t.classList.remove('show'), 3000);
+}
+
+/* min date = tomorrow */
+const d = new Date(); d.setDate(d.getDate() + 1);
+document.getElementById('r-date').min = d.toISOString().split('T')[0];
+
+/* init */
+loadMenu('starters');
+</script>
+</body>
+</html>
