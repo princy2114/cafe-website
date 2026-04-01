@@ -1,6 +1,4 @@
 # cafe-website
-A website made using HTML/CSS 
-
 This is a simple cafe website built using HTML/CSS.
 
 How to Run
